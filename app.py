@@ -211,7 +211,8 @@ def get_invoices():
     accounting_api = AccountingApi(api_client)
 
     invoices = accounting_api.get_invoices(
-        xero_tenant_id, statuses=["DRAFT", "AUTHORISED"]
+        xero_tenant_id, statuses=["DRAFT", "AUTHORISED"],
+        type="ACCREC"
     )
     code = serialize_model(invoices)
     sub_title = "Total invoices found: {}".format(len(invoices.invoices))
